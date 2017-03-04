@@ -33,3 +33,12 @@ def get_files_list(paths, recursive):
 
 def get_file_list(path):
     return get_files_list((path,), True)
+
+
+def make_dir_by_file_name(file_name):
+    dir_name, file_name = os.path.split(file_name)
+    file_name_wo_ext = os.path.splitext(file_name)[0]
+    out_dir = os.path.join(dir_name, file_name_wo_ext)
+    if not os.path.exists(out_dir):
+        os.makedirs(out_dir)
+    return out_dir
