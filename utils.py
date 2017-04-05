@@ -5,7 +5,7 @@ import os
 
 
 def is_image_file(f):
-    known_extensions = ('.jpg', '.jpeg', '.png')
+    known_extensions = ('.bmp', '.jpg', '.jpeg', '.png')
     return os.path.isfile(f) and f.lower().endswith(known_extensions)
 
 
