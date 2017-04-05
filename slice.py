@@ -8,7 +8,7 @@ from utils import make_dir_by_file_name
 
 
 @click.command()
-@click.argument('path', type=click.Path(exists=True, writable=True, dir_okay=False))
+@click.argument('path', type=click.Path(exists=True, dir_okay=False))
 @click.argument('w', type=click.IntRange(min=1))
 @click.argument('h', type=click.IntRange(min=1))
 def slice(path, w, h):
