@@ -2,6 +2,8 @@
 # -*- coding: utf-8 -*-
 
 import os
+import shutil
+import uuid
 
 
 def is_image_file(f):
@@ -42,3 +44,23 @@ def make_dir_by_file_name(file_name):
     if not os.path.exists(out_dir):
         os.makedirs(out_dir)
     return out_dir
+
+
+def get_unique_file_name(path):
+    while True:
+        temp_dir = os.path.join(path, str(uuid.uuid4()))
+        if not os.path.exists(temp_dir):
+            return temp_dir
+
+
+class TempDir:
+    def __init__(self, path):
+        self.root_dir = path
+
+    def __enter__(self):
+        self.temp_dir = get_unique_file_name(self.root_dir)
+        os.makedirs(self.temp_dir)
+        return self.temp_dir
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        shutil.rmtree(self.temp_dir)
