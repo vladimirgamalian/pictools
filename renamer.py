@@ -3,7 +3,6 @@
 
 import click
 import os
-import shutil
 from utils import TempDir
 
 
