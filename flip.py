@@ -10,7 +10,7 @@ from utils import get_file_list
 @click.argument('path', type=click.Path(exists=True))
 @click.option('-h', '--horizontal', is_flag=True, help='flip horizontal')
 @click.option('-v', '--vertical', is_flag=True, help='flip vertical')
-def crop(path, horizontal, vertical):
+def flip(path, horizontal, vertical):
     """
     Flip image(s) horizontal or vertical (or both). 
     """
@@ -24,4 +24,4 @@ def crop(path, horizontal, vertical):
 
 
 if __name__ == '__main__':
-    crop()
+    flip()
