@@ -30,6 +30,11 @@ Windows Registry Editor Version 5.00
 [HKEY_CLASSES_ROOT\*\shell\pictools\menus\main\shell\cmd5\command]
 @="python.exe K:\\projects\\pictools\\renamer.py \"%1\" --start 0"
 
+[HKEY_CLASSES_ROOT\*\shell\pictools\menus\main\shell\cmd6]
+"MUIVerb"="remove padding"
+[HKEY_CLASSES_ROOT\*\shell\pictools\menus\main\shell\cmd6\command]
+@="python.exe K:\\projects\\pictools\\remove_padding.py \"%1\""
+
 ;
 
 [HKEY_CLASSES_ROOT\*\shell\pictools\menus\flip\shell\cmd1]
