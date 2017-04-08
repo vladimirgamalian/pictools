@@ -19,7 +19,7 @@ def box_union(a, b):
 def crop(path):
     files = get_file_list(path)
     sizes = [Image.open(f).size for f in files]
-    assert sizes.count(sizes[0]) == len(sizes)
+    assert all(s == sizes[0] for s in sizes)
     boxes = [Image.open(f).convert("RGBa").getbbox() for f in files]
     box = reduce(box_union, boxes)
     for f in files:
