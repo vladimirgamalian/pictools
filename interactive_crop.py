@@ -1,0 +1,22 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+import click
+from PIL import Image
+from utils import get_file_list
+
+
+@click.command()
+@click.argument('path', type=click.Path(exists=True))
+@click.option('--x', type=click.INT, prompt=True)
+@click.option('--y', type=click.INT, prompt=True)
+@click.option('--w', type=click.INT, prompt=True)
+@click.option('--h', type=click.INT, prompt=True)
+def crop(path, x, y, w, h):
+    for f in get_file_list(path):
+        img = Image.open(f)
+        img.crop((x, y, x + w, y + h)).save(f)
+
+
+if __name__ == '__main__':
+    crop()
