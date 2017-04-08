@@ -1,0 +1,51 @@
+Windows Registry Editor Version 5.00
+
+
+[HKEY_CLASSES_ROOT\*\shell\pictools]
+"MUIVerb"="Pictools..."
+"ExtendedSubCommandsKey"="*\\shell\\pictools\\menus\\main"
+
+
+[HKEY_CLASSES_ROOT\*\shell\pictools\menus\main\shell\cmd1]
+"MUIVerb"="flip.."
+"ExtendedSubCommandsKey"="*\\shell\\pictools\\menus\\flip"
+
+[HKEY_CLASSES_ROOT\*\shell\pictools\menus\main\shell\cmd2]
+"MUIVerb"="convert.."
+"ExtendedSubCommandsKey"="*\\shell\\pictools\\menus\\convert"
+
+[HKEY_CLASSES_ROOT\*\shell\pictools\menus\main\shell\cmd3]
+"MUIVerb"="crop"
+[HKEY_CLASSES_ROOT\*\shell\pictools\menus\main\shell\cmd3\command]
+@="python.exe K:\\projects\\pictools\\interactive_crop.py \"%1\""
+
+;
+
+[HKEY_CLASSES_ROOT\*\shell\pictools\menus\flip\shell\cmd1]
+"MUIVerb"="Horizontal"
+[HKEY_CLASSES_ROOT\*\shell\pictools\menus\flip\shell\cmd1\command]
+@="python.exe K:\\projects\\pictools\\flip.py \"%1\" -h"
+
+[HKEY_CLASSES_ROOT\*\shell\pictools\menus\flip\shell\cmd2]
+"MUIVerb"="Vertical"
+[HKEY_CLASSES_ROOT\*\shell\pictools\menus\flip\shell\cmd2\command]
+@="python.exe K:\\projects\\pictools\\flip.py \"%1\" -v"
+
+;
+
+[HKEY_CLASSES_ROOT\*\shell\pictools\menus\convert\shell\cmd1]
+"MUIVerb"="to PNG"
+[HKEY_CLASSES_ROOT\*\shell\pictools\menus\convert\shell\cmd1\command]
+@="python.exe K:\\projects\\pictools\\convert.py \"%1\" -f png"
+
+[HKEY_CLASSES_ROOT\*\shell\pictools\menus\convert\shell\cmd2]
+"MUIVerb"="to BMP"
+[HKEY_CLASSES_ROOT\*\shell\pictools\menus\convert\shell\cmd2\command]
+@="python.exe K:\\projects\\pictools\\convert.py \"%1\" -f bmp"
+
+
+; for Directories
+
+[HKEY_CLASSES_ROOT\Directory\shell\pictools]
+"MUIVerb"="Pictools..."
+"ExtendedSubCommandsKey"="*\\shell\\pictools\\menus\\main"
