@@ -14,8 +14,8 @@ def renamer(path, start):
     files = sorted([f for f in os.listdir(path) if os.path.isfile(os.path.join(path, f)) and f.lower().endswith('.png')])
     files = [(f, ('%04d' % (start + i)) + os.path.splitext(f)[1]) for i, f in enumerate(files)]
     with TempDir(path) as t:
-        [os.rename(os.path.join(path, f[0]), os.path.join(t, f[1])) for f in files]
-        [os.rename(os.path.join(t, f[1]), os.path.join(path, f[1])) for f in files]
+        for f in files: os.rename(os.path.join(path, f[0]), os.path.join(t, f[1]))
+        for f in files: os.rename(os.path.join(t, f[1]), os.path.join(path, f[1]))
 
 
 if __name__ == '__main__':
