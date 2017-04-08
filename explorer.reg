@@ -6,6 +6,7 @@ Windows Registry Editor Version 5.00
 "ExtendedSubCommandsKey"="*\\shell\\pictools\\menus\\main"
 
 
+
 [HKEY_CLASSES_ROOT\*\shell\pictools\menus\main\shell\cmd1]
 "MUIVerb"="flip.."
 "ExtendedSubCommandsKey"="*\\shell\\pictools\\menus\\flip"
@@ -18,6 +19,16 @@ Windows Registry Editor Version 5.00
 "MUIVerb"="crop"
 [HKEY_CLASSES_ROOT\*\shell\pictools\menus\main\shell\cmd3\command]
 @="python.exe K:\\projects\\pictools\\interactive_crop.py \"%1\""
+
+[HKEY_CLASSES_ROOT\*\shell\pictools\menus\main\shell\cmd4]
+"MUIVerb"="rename.."
+[HKEY_CLASSES_ROOT\*\shell\pictools\menus\main\shell\cmd4\command]
+@="python.exe K:\\projects\\pictools\\renamer.py \"%1\""
+
+[HKEY_CLASSES_ROOT\*\shell\pictools\menus\main\shell\cmd5]
+"MUIVerb"="rename from 0000"
+[HKEY_CLASSES_ROOT\*\shell\pictools\menus\main\shell\cmd5\command]
+@="python.exe K:\\projects\\pictools\\renamer.py \"%1\" --start 0"
 
 ;
 
