@@ -33,8 +33,8 @@ def get_files_list(paths, recursive):
     return result
 
 
-def get_file_list(path):
-    return get_files_list((path,), True)
+def get_file_list(path, recursive=True):
+    return get_files_list((path,), recursive)
 
 
 def make_dir_by_file_name(file_name):
