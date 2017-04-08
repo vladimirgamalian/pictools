@@ -8,10 +8,10 @@ from utils import get_file_list
 
 @click.command()
 @click.argument('path', type=click.Path(exists=True))
-@click.option('--x', type=click.INT, prompt=True)
-@click.option('--y', type=click.INT, prompt=True)
-@click.option('--w', type=click.INT, prompt=True)
-@click.option('--h', type=click.INT, prompt=True)
+@click.option('--x', type=click.IntRange(min=0), prompt=True)
+@click.option('--y', type=click.IntRange(min=0), prompt=True)
+@click.option('--w', type=click.IntRange(min=1), prompt=True)
+@click.option('--h', type=click.IntRange(min=1), prompt=True)
 def crop(path, x, y, w, h):
     for f in get_file_list(path):
         img = Image.open(f)
