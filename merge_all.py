@@ -21,7 +21,7 @@ def merge_images(im, file_name, no_alpha):
 @click.command()
 @click.argument('path', type=click.Path(exists=True))
 @click.argument('output', type=click.Path(dir_okay=False))
-@click.option('-v', '--no_alpha', is_flag=True, help='flip vertical')
+@click.option('-n', '--no_alpha', is_flag=True, help='flip vertical')
 def merge_all(path, output, no_alpha):
     """
     """
