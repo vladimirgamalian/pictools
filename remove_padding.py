@@ -22,6 +22,7 @@ def crop(path):
     assert all(s == sizes[0] for s in sizes)
     boxes = [Image.open(f).convert("RGBa").getbbox() for f in files]
     box = reduce(box_union, boxes)
+    print box
     for f in files:
         img = Image.open(f)
         img.crop(box).save(f)
