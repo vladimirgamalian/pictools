@@ -32,8 +32,8 @@ def resize(path, w, h):
     """
     for f in get_file_list(path):
         im = Image.open(f).convert('RGBA')
-        new_w = int(round(im.size[0] * 100. / w[0] if w[1] else w[0]))
-        new_h = int(round(im.size[1] * 100. / h[0] if h[1] else h[0]))
+        new_w = int(round(im.size[0] * w[0] / 100. if w[1] else w[0]))
+        new_h = int(round(im.size[1] * h[0] / 100. if h[1] else h[0]))
         new_im = im.resize((new_w, new_h), Image.LANCZOS)
         new_im.save(f)
 
