@@ -12,8 +12,7 @@ from PIL import Image
 @click.argument('row', type=click.IntRange(min=1))
 def multipy(src, dst, col, row):
     src_im = Image.open(src).convert("RGBA")
-    w = src_im.size[0]
-    h = src_im.size[1]
+    w, h = src_im.size
     dst_im = Image.new('RGBA', (w * col, h * row))
     for y in range(row):
         for x in range(col):
