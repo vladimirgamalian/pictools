@@ -26,7 +26,7 @@ def parse_info_file(info_file, src_size):
         for i, line in enumerate(f):
             try:
                 result.append(parse_line(line, src_size))
-            except:
+            except Exception:
                 raise RuntimeError('error parse line #' + str(i + 1) + ': ' + line)
     return result
 

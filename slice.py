@@ -17,8 +17,7 @@ def slice(path, w, h):
     """
     out_dir = make_dir_by_file_name(path)
     img = Image.open(path)
-    src_w = img.size[0]
-    src_h = img.size[1]
+    src_w, src_h = img.size
     if w > src_w or h > src_h:
         raise RuntimeError('dimension out of range')
     part_x = src_w / w
