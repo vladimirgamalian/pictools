@@ -2,10 +2,10 @@ language: python
 python:
   - "2.7"
 before_install:
-  - pip install pep8  
+  - pip install pycodestyle  
 install:
   - pip install -r requirements.txt
 script:
-  - find . -name \*.py -exec pep8 --ignore=E501 {} +  
+  - find . -name \*.py -exec pycodestyle --ignore=E501 {} +  
 notifications:
   email: false
