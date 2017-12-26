@@ -12,7 +12,7 @@ from utils import get_file_list
 @click.option('-v', '--vertical', is_flag=True, help='flip vertical')
 def flip(path, horizontal, vertical):
     """
-    Flip image(s) horizontal or vertical (or both). 
+    Flip image(s) horizontal or vertical (or both).
     """
     for f in get_file_list(path):
         img = Image.open(f)
