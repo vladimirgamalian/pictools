@@ -11,12 +11,13 @@ from PIL import Image
 @click.argument('col', type=click.IntRange(min=1))
 @click.argument('row', type=click.IntRange(min=1))
 def multipy(src, dst, col, row):
-    src_im = Image.open(src).convert("RGBA")
+    src_im = Image.open(src)
     w, h = src_im.size
-    dst_im = Image.new('RGBA', (w * col, h * row))
+    mask = src_im if src_im.mode == 'RGBA' else None
+    dst_im = Image.new(src_im.mode, (w * col, h * row))
     for y in range(row):
         for x in range(col):
-            dst_im.paste(src_im, (x * w, y * h), src_im)
+            dst_im.paste(src_im, (x * w, y * h), mask)
     dst_im.save(dst)
 
 
