@@ -12,7 +12,7 @@ def natural_sort_key(s, _nsre=re.compile('([0-9]+)')):
 
 
 def is_image_file(f):
-    known_extensions = ('.bmp', '.jpg', '.jpeg', '.png')
+    known_extensions = ('.bmp', '.jpg', '.jpeg', '.png', '.dds')
     return os.path.isfile(f) and f.lower().endswith(known_extensions)
 
 
