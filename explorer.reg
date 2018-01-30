@@ -1,11 +1,18 @@
 Windows Registry Editor Version 5.00
 
 
+; base main menu item for files
 [HKEY_CLASSES_ROOT\*\shell\pictools]
 "MUIVerb"="Pictools..."
 "ExtendedSubCommandsKey"="*\\shell\\pictools\\menus\\main"
 
+; base main menu item for directories
+[HKEY_CLASSES_ROOT\Directory\shell\pictools]
+"MUIVerb"="Pictools..."
+"ExtendedSubCommandsKey"="*\\shell\\pictools\\menus\\main"
 
+
+; menu
 
 [HKEY_CLASSES_ROOT\*\shell\pictools\menus\main\shell\cmd1]
 "MUIVerb"="flip.."
@@ -35,8 +42,14 @@ Windows Registry Editor Version 5.00
 [HKEY_CLASSES_ROOT\*\shell\pictools\menus\main\shell\cmd6\command]
 @="python.exe K:\\projects\\pictools\\remove_padding.py \"%1\""
 
-;
+[HKEY_CLASSES_ROOT\*\shell\pictools\menus\main\shell\cmd7]
+"MUIVerb"="resize.."
+[HKEY_CLASSES_ROOT\*\shell\pictools\menus\main\shell\cmd7\command]
+@="python.exe K:\\projects\\pictools\\interactive_resize.py \"%1\""
 
+
+
+; flip submenu
 [HKEY_CLASSES_ROOT\*\shell\pictools\menus\flip\shell\cmd1]
 "MUIVerb"="Horizontal"
 [HKEY_CLASSES_ROOT\*\shell\pictools\menus\flip\shell\cmd1\command]
@@ -47,8 +60,9 @@ Windows Registry Editor Version 5.00
 [HKEY_CLASSES_ROOT\*\shell\pictools\menus\flip\shell\cmd2\command]
 @="python.exe K:\\projects\\pictools\\flip.py \"%1\" -v"
 
-;
 
+
+; convert submenu
 [HKEY_CLASSES_ROOT\*\shell\pictools\menus\convert\shell\cmd1]
 "MUIVerb"="to PNG"
 [HKEY_CLASSES_ROOT\*\shell\pictools\menus\convert\shell\cmd1\command]
@@ -59,9 +73,3 @@ Windows Registry Editor Version 5.00
 [HKEY_CLASSES_ROOT\*\shell\pictools\menus\convert\shell\cmd2\command]
 @="python.exe K:\\projects\\pictools\\convert.py \"%1\" -f bmp"
 
-
-; for Directories
-
-[HKEY_CLASSES_ROOT\Directory\shell\pictools]
-"MUIVerb"="Pictools..."
-"ExtendedSubCommandsKey"="*\\shell\\pictools\\menus\\main"
