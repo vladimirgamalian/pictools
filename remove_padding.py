@@ -16,16 +16,23 @@ def box_union(a, b):
 
 @click.command()
 @click.argument('path', type=click.Path(exists=True))
-def crop(path):
+@click.option('-s', '--separate', is_flag=True, help='use separate padding (otherwise common box will be used)')
+def crop(path, separate):
     files = get_file_list(path)
-    sizes = [Image.open(f).size for f in files]
-    assert all(s == sizes[0] for s in sizes)
-    boxes = [Image.open(f).convert("RGBa").getbbox() for f in files]
-    box = reduce(box_union, boxes)
-    print box
-    for f in files:
-        img = Image.open(f)
-        img.crop(box).save(f)
+    if separate:
+        for f in files:
+            img = Image.open(f)
+            box = img.convert("RGBa").getbbox()
+            img.crop(box).save(f)
+    else:
+        sizes = [Image.open(f).size for f in files]
+        assert all(s == sizes[0] for s in sizes)
+        boxes = [Image.open(f).convert("RGBa").getbbox() for f in files]
+        box = reduce(box_union, boxes)
+        print box
+        for f in files:
+            img = Image.open(f)
+            img.crop(box).save(f)
 
 
 if __name__ == '__main__':
