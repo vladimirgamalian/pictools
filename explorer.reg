@@ -47,6 +47,11 @@ Windows Registry Editor Version 5.00
 [HKEY_CLASSES_ROOT\*\shell\pictools\menus\main\shell\cmd7\command]
 @="python.exe K:\\projects\\pictools\\interactive_resize.py \"%1\""
 
+[HKEY_CLASSES_ROOT\*\shell\pictools\menus\main\shell\cmd8]
+"MUIVerb"="set corners"
+[HKEY_CLASSES_ROOT\*\shell\pictools\menus\main\shell\cmd8\command]
+@="python.exe K:\\projects\\pictools\\set_corners.py \"%1\""
+
 
 
 ; flip submenu
