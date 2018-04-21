@@ -16,7 +16,7 @@ def is_eq_size(path):
     sizes = [Image.open(f).size for f in files]
 
     if all(s == sizes[0] for s in sizes):
-        print 'all pictures have same size'
+        print 'all pictures have same size:', sizes[0]
     else:
         print 'not all pictures have same size'
 
