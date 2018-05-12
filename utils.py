@@ -5,6 +5,15 @@ import os
 import shutil
 import uuid
 import re
+import click
+from helpers import colors
+
+
+def validate_rolls(ctx, param, value):
+    c = colors.string_to_color(value)
+    if c is None:
+        raise click.BadParameter('invalid color')
+    return c
 
 
 def natural_sort_key(s, _nsre=re.compile('([0-9]+)')):
