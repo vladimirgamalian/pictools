@@ -4,7 +4,7 @@
 import click
 import os
 from PIL import Image
-from utils import make_dir_by_file_name
+from utils.misc import make_dir_by_file_name
 
 
 def parse_line(line, src_size):

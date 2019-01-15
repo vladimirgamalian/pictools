@@ -3,7 +3,7 @@
 
 import click
 import os
-from utils import TempDir, natural_sort_key
+from utils.misc import TempDir, natural_sort_key
 
 
 @click.command()
