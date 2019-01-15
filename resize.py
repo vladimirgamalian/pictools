@@ -26,7 +26,7 @@ def validate_dim(ctx, param, value):
 @click.argument('h', callback=validate_dim)
 def resize(path, w, h):
     """
-    Resize all images in the given folder and all subfolders.
+    Resize all images in the given folder and all sub folders.
     Width and Height can be integer or float values in pixels or percents: 10, 12.5, 80%, 20.5%.
     Result size will be rounded to integer.
     """
