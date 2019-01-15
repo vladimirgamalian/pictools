@@ -3,7 +3,7 @@
 
 import click
 from PIL import Image
-from utils import get_file_list
+from utils.misc import get_file_list
 
 
 def make_transparent(file_name, transparency, reset):

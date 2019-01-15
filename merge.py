@@ -3,7 +3,7 @@
 
 import click
 from PIL import Image
-from utils import get_file_list
+from utils.misc import get_file_list
 
 
 def merge_file(file_name, sample, back):
